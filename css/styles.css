@@ -1,0 +1,619 @@
+/* =========================================
+   styles.css — Mundo Esotérico
+   Compilado desde SCSS (partials + mixins + variables)
+   ========================================= */
+
+/* === BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bree Serif", serif;
+    color: #b09878;
+    padding-top: 5rem;
+    background-color: #faf7f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+/* === NAVEGACIÓN === */
+nav {
+    background-color: #f8f5f2b3;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(214, 180, 152, 0.3);
+}
+
+nav .logo img {
+    height: 60px;
+    width: auto;
+    border-radius: 2rem;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+nav .nav-links a {
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    color: #937c6c;
+}
+
+nav .nav-links a:hover {
+    color: #1e0f0a;
+}
+
+nav .nav-links a.activo {
+    color: #d4a843;
+    font-weight: bold;
+}
+
+.menu-container {
+    display: none;
+}
+
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #937c6c;
+}
+
+/* WhatsApp flotante */
+.wpplogofixed {
+    background-color: #ffffff;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1rem;
+    z-index: 9999;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wpplogofixed:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wpplogofixed .wpplogo {
+    width: 6rem;
+    height: 6rem;
+}
+
+/* === HERO === */
+.hero {
+    background-image: url("../img/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+}
+
+.hero-tarjeta {
+    background-color: #1e0f0a8c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 36px;
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.hero-logo-circulo {
+    width: 130px;
+    height: 130px;
+    min-width: 130px;
+    border-radius: 50%;
+    background-color: #d2b48c4d;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logo-circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-texto {
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.hero-eslogan {
+    font-size: 16px;
+    color: #e8d5b7;
+}
+
+.hero-boton {
+    display: inline-block;
+    background-color: #d4a843;
+    color: #3a2000;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.hero-boton:hover {
+    background-color: #d1c19d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(212, 168, 67, 0.18);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === PRODUCTOS === */
+.productos {
+    padding: 60px 40px;
+}
+
+.productos h2,
+.nosotros h2,
+.contacto h2,
+.section-title {
+    text-align: center;
+    color: #1e0f0a;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 1rem;
+    border: 2px solid #d6b498;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.tarjeta:hover {
+    background-color: #9b9b9b6b;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(212, 168, 67, 0.18);
+}
+
+.tarjeta img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 12px;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.03);
+}
+
+.tarjeta h3 {
+    color: #d4af7a;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    color: #9a8060;
+    line-height: 1.6;
+}
+
+.tarjeta .precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4a843;
+    margin-top: 8px;
+}
+
+/* === NOSOTROS === */
+.nosotros {
+    background: #0d0520;
+    padding: 60px 40px;
+    text-align: center;
+    border-top: 1px solid #4a2060;
+    border-bottom: 1px solid #4a2060;
+}
+
+.nosotros h2 {
+    color: #b09878;
+}
+
+.nosotros p {
+    max-width: 640px;
+    margin: 0 auto 20px;
+    line-height: 1.9;
+    color: #b09878;
+    font-size: 15px;
+}
+
+/* === CONTACTO === */
+.contacto {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.contacto p {
+    font-size: 14px;
+    color: #a89070;
+    line-height: 2.5;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto-item {
+    background-color: #fdf9f4;
+    border: 1px solid rgba(214, 180, 152, 0.4);
+    border-radius: 1rem;
+    padding: 24px;
+    transition: box-shadow 0.3s ease;
+}
+
+.contacto-item:hover {
+    box-shadow: 0 8px 32px rgba(212, 168, 67, 0.18);
+}
+
+.contacto-item span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #d4a843;
+    margin-bottom: 6px;
+}
+
+.contacto-item p {
+    font-size: 15px;
+    color: #9a8060;
+    line-height: 1.5;
+}
+
+/* Formulario */
+.form-contacto {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.form-contacto label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #937c6c;
+    margin-bottom: 6px;
+}
+
+.form-contacto input,
+.form-contacto textarea,
+.form-contacto select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(214, 180, 152, 0.5);
+    border-radius: 0.5rem;
+    background: #fdf9f4;
+    font-family: "Bree Serif", serif;
+    font-size: 14px;
+    color: #1e0f0a;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus,
+.form-contacto select:focus {
+    border-color: #d4a843;
+    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+}
+
+.form-contacto textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-enviar {
+    display: inline-block;
+    background-color: #d4a843;
+    color: #3a2000;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: "Bree Serif", serif;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-enviar:hover {
+    background-color: #d1c19d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(212, 168, 67, 0.18);
+}
+
+/* === FOOTER === */
+footer {
+    background: #0d0520;
+    text-align: center;
+    padding: 24px 20px;
+    border-top: 1px solid #4a2060;
+}
+
+footer p {
+    font-size: 12px;
+    color: #5a4040;
+    letter-spacing: 1px;
+}
+
+/* === PAGE HERO (páginas internas) === */
+.page-hero {
+    background-color: #0d0520;
+    border-bottom: 1px solid #4a2060;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.page-hero p {
+    color: #b09878;
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.page-hero .estrella-deco {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+    animation: pulse 2s infinite;
+}
+
+
+
+/* === OFERTA BADGE === */
+.oferta-badge {
+    display: inline-block;
+    background-color: #d4a843;
+    color: #3a2000;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 40px;
+    margin-bottom: 10px;
+    animation: badgePop 0.4s ease;
+}
+
+@keyframes badgePop {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+/* === FADE IN SCROLL === */
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === RESPONSIVE — TABLET === */
+@media (max-width: 768px) {
+    .grilla {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    nav {
+        padding: 14px 20px;
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* === RESPONSIVE — MOBILE === */
+@media (max-width: 481px) {
+    .menu-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        padding: 1rem 20px;
+    }
+
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(214, 180, 152, 0.3);
+        margin-top: 0.5rem;
+    }
+
+    .menu-toggle-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .hero {
+        padding: 50px 16px;
+        background-attachment: scroll;
+    }
+
+    .hero-tarjeta {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .hero-logo-circulo {
+        width: 90px;
+        height: 90px;
+        min-width: 90px;
+    }
+
+    .hero-texto {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+
+    .hero-eslogan {
+        font-size: 13px;
+    }
+
+    .grilla {
+        grid-template-columns: 1fr;
+    }
+
+    .productos,
+    .nosotros,
+    .contacto {
+        padding: 40px 16px;
+    }
+}

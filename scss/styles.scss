@@ -1,0 +1,11 @@
+// =========================================
+// styles.scss — Mundo Esotérico
+// Archivo principal que importa todos los partials
+// =========================================
+
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+@use 'partials/base';
+@use 'partials/nav';
+@use 'partials/hero';
+@use 'partials/secciones';
